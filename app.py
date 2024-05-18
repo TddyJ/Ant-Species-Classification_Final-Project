@@ -48,17 +48,15 @@ if page == "Home":
     # File Uploader
     file = st.file_uploader("Choose an Ant image among the following ant species: Fire Ant, Ghost Ant, Little Black Ant, Weaver Ant", type=["jpg", "png"])
     
-    # Function to make predictions
+    # Function to preprocess and make predictions
     def import_and_predict(image_data, model):
-        size = (150, 150)  
-        img = image.load_img(image_data, target_size=size)
-        x = image.img_to_array(img)
-        x = np.expand_dims(x, axis=0)
-
-        # Classify the image
-        single_prediction = model.predict(x)
-        single_predicted_class = np.argmax(single_prediction)
-        return single_predicted_class
+        img_width, img_height = 150, 150  # Same dimensions as in training
+        image = ImageOps.fit(image_data, (img_width, img_height), Image.LANCZOS)
+        img = np.asarray(image)
+        img = img / 255.0  # Normalize to [0, 1] range
+        img_reshape = np.expand_dims(img, axis=0)  # Add batch dimension
+        prediction = model.predict(img_reshape)
+        return prediction
     
     if file is None:
         st.text("Please upload an image file")
