@@ -48,13 +48,13 @@ if page == "Home":
     # File Uploader
     file = st.file_uploader("Choose an Ant image among the following ant species: Fire Ant, Ghost Ant, Little Black Ant, Weaver Ant", type=["jpg", "png"])
     
-    # Function to preprocess and make predictions
+    # Function to make predictions
     def import_and_predict(image_data, model):
-        img_width, img_height = 150, 150  # Same dimensions as in training
-        image = ImageOps.fit(image_data, (img_width, img_height), Image.LANCZOS)
+        size = (150, 150)  
+        image = ImageOps.fit(image_data, size, PIL.Image.LANCZOS) 
         img = np.asarray(image)
-        img = img / 255.0  # Normalize to [0, 1] range
-        img_reshape = np.expand_dims(img, axis=0)  # Add batch dimension
+        img = img / 255.0  
+        img_reshape = img[np.newaxis, ...]
         prediction = model.predict(img_reshape)
         return prediction
     
