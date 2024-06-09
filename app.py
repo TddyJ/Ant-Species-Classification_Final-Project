@@ -9,7 +9,7 @@ from io import BytesIO
 # Function to load the model
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('base_model.h5')
+    model = tf.keras.models.load_model('revised_base_model_v2.h5')
     return model
 
 @st.cache
@@ -118,19 +118,19 @@ elif page == "Guide":
     st.write("This page displays the names of the classes that the model can classify:")
     st.markdown("---")
     st.write("- Fire Ant")
-    fire_ant_image = load_image("https://drive.google.com/uc?export=view&id=1_dHlhzdvtZxzPKiby1w9N__R9uPrAXUP")
+    fire_ant_image = load_image("https://drive.google.com/uc?export=download&id=1iCrDjIumbzrV5tH98IlRWYbgzIWtvF7J")
     st.image(fire_ant_image, use_column_width=True)
     st.markdown("---")
     st.write("- Ghost Ant")
-    ghost_ant_image = load_image("https://drive.google.com/uc?export=view&id=1gCTR9Oe4zuE3SDojoqYPMPwOupfSA9Lf")
+    ghost_ant_image = load_image("https://drive.google.com/uc?export=download&id=1UiBZjPZd-vkULxpR6UFOVPzNUd0WIcMq")
     st.image(ghost_ant_image, use_column_width=True)
     st.markdown("---")
     st.write("- Little Black Ant")
-    little_black_ant_image = load_image("https://drive.google.com/uc?export=view&id=1JqI8bUEW6P3PyYfGsudr_0oMxekgYLDy")
+    little_black_ant_image = load_image("https://drive.google.com/uc?export=download&id=1YotDPhmbaQasKqlc7lxt9pBp2H7DImWj")
     st.image(little_black_ant_image, use_column_width=True)
     st.markdown("---")
     st.write("- Weaver Ant")
-    weaver_ant_image = load_image("https://drive.google.com/uc?export=view&id=1gLzYhPu_P-ZZybapSBEE_mzTymFCd7FP")
+    weaver_ant_image = load_image("https://drive.google.com/uc?export=download&id=1Y9dvo6M62qzze2B2RWnOgO-hrPrXAJQF")
     st.image(weaver_ant_image, use_column_width=True)
     st.markdown("---")
     
@@ -151,8 +151,8 @@ elif page == "Links":
     st.title("Links")
     st.markdown("---")
     st.header("Github Link")
-    st.write("[Click Here](https://github.com/TddyJ/Ant-Species-Classification_Final-Project.git)")
+    st.write("[Click Here](https://github.com/TddyJ/Ant-Species-Classification_-Final-Project_-Group-8.git)")
     st.header("Google Drive Link")
-    st.write("[Click Here](https://drive.google.com/drive/folders/1MExGDFt6MVJunB97RloUM7sNb3rudecz?usp=sharing)")
+    st.write("[Click Here](https://drive.google.com/drive/folders/14gjngXopMnuYPR4Ww366tT-fX3zd3JrD?usp=sharing)")
     st.header("Sample Images for Testing")
-    st.write("[Click Here](https://drive.google.com/drive/folders/1gL6A_zjZQDYCsw8UpP-wvto6HKScBMuk?usp=drive_link)")
+    st.write("[Click Here](https://drive.google.com/drive/folders/1nag4zj9Q8tpl2YZeYiTjaCoR4yvAWBvg?usp=sharing)")
